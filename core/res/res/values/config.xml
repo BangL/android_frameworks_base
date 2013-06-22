@@ -1271,4 +1271,7 @@
          to support pie controls. -->
     <bool name="config_allowPieService">true</bool>
 
+    <!-- Boolean to enable adb by default on a per-device basis -->
+    <bool name="config_enableAdbByDefault">false</bool>
+
 </resources>
