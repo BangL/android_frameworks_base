@@ -110,7 +110,12 @@
     <string name="pie_phone_status_emergency_only">Emergency calls only</string>
 
     <!-- Content description of the halo button in the notification panel for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_halo">Create notification halo.</string>  
+    <string name="accessibility_halo">Create notification halo.</string>
+
+    <string name="halo_dismiss">Dismiss notification</string>
+    <string name="halo_hide">Hide</string>
+    <string name="halo_clear_all">Clear all notifications</string>
+    <string name="halo_silence">Hide and silence until woken up</string>  
    
     <!-- App sidebar -->
     <string name="default_folder_text">Folder</string>
