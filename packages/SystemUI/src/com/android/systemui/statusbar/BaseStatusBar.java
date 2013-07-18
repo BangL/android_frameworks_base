@@ -1024,7 +1024,7 @@ public abstract class BaseStatusBar extends SystemUI implements
 
             if (mIntent != null) {
 
-                if (mFloat && !"android".equals(mPkg)) {
+                if (mFloat && !"android".equals(mPkg) && !"com.paranoid.halo".equals(mPkg)) {
                     Intent transparent = new Intent(mContext, com.android.systemui.Transparent.class);
                     transparent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_FLOATING_WINDOW);
                     mContext.startActivity(transparent);
@@ -1183,7 +1183,7 @@ public abstract class BaseStatusBar extends SystemUI implements
 
 	NotificationData.Entry entry = new NotificationData.Entry(key, notification, iconView,
                 createRoundIcon(notification));
-        entry.hide = entry.notification.pkg.equals("com.cyanogenmod.halo");
+        entry.hide = entry.notification.pkg.equals("com.paranoid.halo");
 
         final PendingIntent contentIntent = notification.notification.contentIntent;
         if (contentIntent != null) {
