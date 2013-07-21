@@ -3788,6 +3788,18 @@ public final class Settings {
         public static final String STATUS_BAR_COLOR = "status_bar_color";
 
         /**
+         * Sets if use seperate transparency of statusbar on lockscreen
+         * @hide
+         */
+        public static final String STATUS_BAR_LOCKSCREEN_ALPHA_USE = "status_bar_lockscreen_alpha_use";
+
+        /**
+         * Sets seperate transparency of statusbar on lockscreen, if used
+         * @hide
+         */
+        public static final String STATUS_BAR_LOCKSCREEN_ALPHA = "status_bar_lockscreen_alpha";
+
+        /**
          * AM/PM Style for clock options
          * 0 - Normal AM/PM
          * 1 - Small AM/PM
