@@ -2455,7 +2455,7 @@ public class PhoneStatusBar extends BaseStatusBar {
             final View dockBattery2 = mStatusBarView.findViewById(R.id.dock_battery_text);
             final View dockBattery3 = mStatusBarView.findViewById(R.id.circle_dock_battery);
             final View clock = mStatusBarView.findViewById(R.id.clock);
-	    final View cclock = mStatusBarView.findViewById(R.id.center_clock);
+            final View cclock = mStatusBarView.findViewById(R.id.center_clock);
             final View traffic = mStatusBarView.findViewById(R.id.traffic);
 
             List<ObjectAnimator> lightsOutObjs = new ArrayList<ObjectAnimator>();
