@@ -682,25 +682,17 @@ public class ViewConfiguration {
      *
      * @return true if a permanent menu key is present, false otherwise.
      */
-    public boolean hasPermanentMenuKey() {
-        // Report no menu key if only soft buttons are available
-        if (!sHasPermanentMenuKey) {
-            return false;
-        }
-
-        // Report no menu key if overflow button is forced to enabled
-        ContentResolver res = mContext.getContentResolver();
-        boolean forceOverflowButton = Settings.System.getInt(res,
-                Settings.System.UI_FORCE_OVERFLOW_BUTTON, 0) == 1;
-        if (forceOverflowButton) {
-            return false;
-        }
-
-        // Report menu key presence based on hardware key rebinding
-        IWindowManager wm = WindowManagerGlobal.getWindowManagerService();
-        try {
-            return wm.hasMenuKeyEnabled();
-        } catch (RemoteException ex) {
+     public boolean hasPermanentMenuKey() {
+        // The action overflow button within app UI can
+        // be controlled with a system setting
+        boolean showOverflowButton = Settings.System.getBoolean(
+                mContext.getContentResolver(),
+                Settings.System.UI_FORCE_OVERFLOW_BUTTON, false);
+        if (!showOverflowButton) {
+            // Force overflow button on by reporting that
+            // the device has no permanent menu key
+            return true;
+        } else {
             return sHasPermanentMenuKey;
         }
     }
