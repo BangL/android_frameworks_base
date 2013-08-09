@@ -4182,6 +4182,13 @@ public final class Settings {
         public static final String RECENTS_RAM_BAR_ACTIVE_APPS_COLOR = "recents_ram_bar_active_apps_color";
 
         /**
+         * NFC polling mode configuration key
+         *
+         * @hide
+         */
+        public static final String NFC_POLLING_MODE = "nfc_polling_mode";
+
+        /**
          * MediaScanner behavior on boot.
          * 0 = enabled
          * 1 = ask (notification)
@@ -4189,6 +4196,12 @@ public final class Settings {
          * @hide
          */
         public static final String MEDIA_SCANNER_ON_BOOT = "media_scanner_on_boot";
+
+        /**
+         * Override and forcefully disable the fullscreen keyboard
+         * @hide
+         */
+        public static final String DISABLE_FULLSCREEN_KEYBOARD = "disable_fullscreen_keyboard";
 
     }
 
