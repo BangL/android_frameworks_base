@@ -43,6 +43,7 @@ public class BatteryController extends BroadcastReceiver {
 
     public static final int BATTERY_STYLE_NORMAL         = 0;
     public static final int BATTERY_STYLE_PERCENT        = 1;
+    public static final int BATTERY_STYLE_PERCENT_ONLY   = 2;
     /***
      * BATTERY_STYLE_CIRCLE* cannot be handled in this controller, since we cannot get views from
      * statusbar here. Yet it is listed for completion and not to confuse at future updates
@@ -50,9 +51,9 @@ public class BatteryController extends BroadcastReceiver {
      *
      * set to public to be reused by CircleBattery
      */
-    public static final int BATTERY_STYLE_CIRCLE         = 2;
-    public static final int BATTERY_STYLE_CIRCLE_PERCENT = 3;
-    public static final int BATTERY_STYLE_GONE           = 4;
+    public static final int BATTERY_STYLE_CIRCLE         = 3;
+    public static final int BATTERY_STYLE_CIRCLE_PERCENT = 4;
+    public static final int BATTERY_STYLE_GONE           = 5;
 
 
     private static final int BATTERY_TEXT_STYLE_NORMAL  = R.string.status_bar_settings_battery_meter_format;
@@ -221,7 +222,7 @@ public class BatteryController extends BroadcastReceiver {
 
         if (isBatteryPresent()) {
             if ( isBatteryStatusUnknown() &&
-                (mBatteryStyle == BATTERY_STYLE_NORMAL || mBatteryStyle == BATTERY_STYLE_PERCENT)) {
+                (mBatteryStyle == BATTERY_STYLE_NORMAL || mBatteryStyle == BATTERY_STYLE_PERCENT || mBatteryStyle == BATTERY_STYLE_PERCENT_ONLY)) {
                 // Unknown status doesn't relies on any style
                 mIcon = (View.VISIBLE);
                 mIconStyle = getIconStyleUnknown();
@@ -234,6 +235,8 @@ public class BatteryController extends BroadcastReceiver {
                 mText = (View.VISIBLE);
                 mIconStyle = isBatteryStatusCharging() ?
                                 getIconStyleChargeMin() : getIconStyleNormalMin();
+            } else if (mBatteryStyle == BATTERY_STYLE_PERCENT_ONLY) {
+                mText = (View.VISIBLE);
             }
         }
 
